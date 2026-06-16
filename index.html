@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>My Web Page</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color:#eef2ff;
+      color: #333333;
+      margin: 40px;
+    }
+
+    h1 {
+      color: #2c3e7a;
+    }
+
+    h2 {
+      color: #e94560;
+      margin-top: 30px;
+    }
+
+    p {
+      line-height: 1.7;
+    }
+
+    ul {
+      line-height: 2;
+    }
+
+    .box {
+      background-color: #ffffff;
+      
+      padding: 16px 20px;
+      margin-top: 20px;
+      border-radius: 6px;
+    }
+    .container {
+      display: flex;       /* This turns on the side-by-side magic */
+      gap: 20px;          /* This adds some space between the left and right box */
+    }
+
+    .right-box {
+      flex: 1;            /* Takes up equal space */
+      background-color: #e0e0e0;
+      padding: 20px;
+    }
+    .left-box {
+      flex: 1;            /* Takes up equal space */
+      background-color: #f0f0f0;
+      padding: 20px;
+    }
+    
+     /* Makes image never overflow its box */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* This runs only when screen is 768px or smaller (tablet/mobile) */
+@media (max-width: 768px) {
+
+  /* Stack name and image on top of each other */
+  .container {
+    flex-direction: column;
+  }
+
+  /* Make both boxes full width */
+  .left-box {
+    width: 100%;
+  }
+
+  .right-box {
+    width: 100%;
+  }
+
+  /* Shrink the body margin */
+  body {
+    margin: 15px;
+  }
+
+  /* Shrink the heading size */
+  h1 {
+    font-size: 24px;
+  }
+
+  /* Make form inputs full width */
+  input {
+    width: 100%;
+  }
+
+  /* Make submit button full width */
+  button {
+    width: 100%;
+  }
+
+}
+
+  </style>
+</head>
+
+<body>
+  <section class="container">
+    <div class="left-box">
+  
+      <h1>VINAYA V NAIR</h1>
+      <p>I'm a data science student participating in a 5-day frontend bootcamp.</p>
+    </div>
+    <div class="right-box">
+      <img src="1000137643.jpg" style="max-width:350px; width:100%;" alt="My info">
+    </div>
+   </section>    
+  <h2>About Me</h2>
+  <div class="info-box">
+    <p>My name is Vinaya,data science student in Jain University,Kochi...I am passionate about how HTML can integrate with analysis</p>
+   </div>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Vinaya V Nair</title>
+  
+
+
+
+ 
+
+</body>  
+
+  
+</head>
+    
+    
+
+
+  
+
+  
+
+  
+   <section class="box"><h2>My Interests</h2>
+   <ul>
+     <li>Claude AI</li>
+     
+     <li>R Programming</li>
+     <li>Power Bi</li>
+     <li>Microsoft Excel</li>
+   </ul>
+   </section>
+
+  <h2>Contact</h2>
+  <form>
+    <label>Full Name</label>
+    <input type="text" />
+    
+    <div style="margin-top: 20px;"></div> 
+    
+    <label>Email</label>
+    <input type="email" />
+    <div style="margin-top: 20px;"></div> 
+    <button type="submit">Submit</button>
+    <div style="margin-top: 20px;"></div> 
+    
+
+  </form>
+  
+</body>
+</html>
