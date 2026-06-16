@@ -1,16 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
-  <title>My Web Page</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Vinaya V Nair</title>
 
   <style>
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       font-family: Arial, sans-serif;
-      background-color:#eef2ff;
+      background-color: #eef2ff;
       color: #333333;
-      margin: 40px;
+      padding-top: 65px;
+    }
+
+    
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 65px;
+      background: linear-gradient(90deg, #0f0c29, #302b63, #24243e);
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 0 20px;
+      z-index: 9999;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    }
+
+    .nav-logo {
+      color: #ffffff;
+      font-size: 1.4rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 40px;
+      margin-left: 0;        
+      justify-content: flex-start;
+      width:100%;  
+    }
+
+    .nav-links a {
+      color: #cbd5e1;
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 500;
+      letter-spacing: 1px;
+      padding: 6px 0;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: #818cf8;
+      border-radius: 2px;
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: #ffffff;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    
+    section {
+      padding: 60px 40px;
+      min-height: 100vh;
     }
 
     h1 {
@@ -19,7 +100,7 @@
 
     h2 {
       color: #e94560;
-      margin-top: 30px;
+      margin-bottom: 20px;
     }
 
     p {
@@ -28,144 +109,507 @@
 
     ul {
       line-height: 2;
+      padding-left: 20px;
     }
 
-    .box {
-      background-color: #ffffff;
-      
-      padding: 16px 20px;
-      margin-top: 20px;
-      border-radius: 6px;
+    
+    #home {
+      background-color: #f0f0f0;
     }
+
     .container {
-      display: flex;       /* This turns on the side-by-side magic */
-      gap: 20px;          /* This adds some space between the left and right box */
+      display: flex;
+      gap: 20px;
     }
 
-    .right-box {
-      flex: 1;            /* Takes up equal space */
-      background-color: #e0e0e0;
-      padding: 20px;
-    }
     .left-box {
-      flex: 1;            /* Takes up equal space */
+      flex: 1;
       background-color: #f0f0f0;
       padding: 20px;
     }
+
+    .right-box {
+      flex: 1;
+      background-color: #e0e0e0;
+      padding: 20px;
+    }
+
+    img {
+      max-width: 350px;
+      width: 100%;
+      height: auto;
+    }
+
     
-     /* Makes image never overflow its box */
-img {
-  max-width: 100%;
-  height: auto;
-}
+    #about {
+      background-color: #eef2ff;
+    }
 
-/* This runs only when screen is 768px or smaller (tablet/mobile) */
-@media (max-width: 768px) {
+    /* ===== INTERESTS SECTION ===== */
+    #interests {
+      background-color: #ffffff;
+    }
 
-  /* Stack name and image on top of each other */
-  .container {
-    flex-direction: column;
-  }
+    /* ===== CONTACT SECTION ===== */
+    #contact {
+      background-color: #f0fff4;
+    }
 
-  /* Make both boxes full width */
-  .left-box {
-    width: 100%;
-  }
+    #contact form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      max-width: 500px;
+    }
 
-  .right-box {
-    width: 100%;
-  }
+    #contact input,
+    #contact textarea {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+      width: 100%;
+    }
 
-  /* Shrink the body margin */
-  body {
-    margin: 15px;
-  }
+    #contact button {
+      padding: 10px 25px;
+      background-color: #302b63;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
 
-  /* Shrink the heading size */
-  h1 {
-    font-size: 24px;
-  }
+    #contact button:hover {
+      background-color: #0f0c29;
+    }
 
-  /* Make form inputs full width */
-  input {
-    width: 100%;
-  }
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+      }
+      body {
+        padding-top: 65px;
+      }
+      .navbar {
+        padding: 0 20px;
+      }
+      .nav-links {
+        gap: 20px;
+      }
+      section {
+        padding: 40px 20px;
+      }
+    }
+    @media (max-width: 480px) {
+        .navbar {
+        padding: 10px;
+      }
 
-  /* Make submit button full width */
-  button {
-    width: 100%;
-  }
+    }
+    .nav-links {
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+    .nav-links a {
+        font-size: 0.78rem;
+      }
 
-}
+      body {
+        padding-top: 110px;
+      }
+
+      h1 {
+        font-size: 22px;
+      }
+       #contact input,
+      #contact textarea {
+        width: 100%;
+      }
+
+      #contact button {
+        width: 100%;
+      }
+
+     
 
   </style>
 </head>
-
 <body>
-  <section class="container">
-    <div class="left-box">
+
+      
+
+
+
+
   
-      <h1>VINAYA V NAIR</h1>
-      <p>I'm a data science student participating in a 5-day frontend bootcamp.</p>
+  <nav class="navbar">
+    
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About Me</a></li>
+      <li><a href="#interests">My Interests</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HOME SECTION -->
+  <section id="home">
+    <div class="container">
+      <div class="left-box">
+        <h1>VINAYA V NAIR</h1>
+        <p>I'm a data science student participating in a 5-day frontend bootcamp.</p>
+      </div>
+      <div class="right-box">
+        <img src="1000137643.jpg" alt="My photo" />
+      </div>
     </div>
-    <div class="right-box">
-      <img src="1000137643.jpg" style="max-width:350px; width:100%;" alt="My info">
-    </div>
-   </section>    
-  <h2>About Me</h2>
-  <div class="info-box">
-    <p>My name is Vinaya,data science student in Jain University,Kochi...I am passionate about how HTML can integrate with analysis</p>
-   </div>
-    <!DOCTYPE html>
+  </section>
+
+  <!-- ABOUT SECTION -->
+  <section id="about">
+    <h2>About Me</h2>
+    <p>My name is Vinaya, data science student in Jain University, Kochi. I am passionate about how HTML can integrate with analysis.</p>
+  </section>
+
+  <!-- INTERESTS SECTION -->
+  <section id="interests">
+    <h2>My Interests</h2>
+    <ul>
+      <li>Claude AI</li>
+      <li>R Programming</li>
+      <li>Power BI</li>
+      <li>Microsoft Excel</li>
+    </ul>
+  </section>
+
+  <!-- CONTACT SECTION -->
+  <section id="contact">
+    <h2>Contact</h2>
+    <form id="contactForm">
+      <label>Full Name</label>
+      <input type="text" id="name" placeholder="Enter your name" required />
+      <label>Email</label>
+      <input type="email" id="email" placeholder="Enter your email" required />
+      <button type="submit">Submit</button>
+    </form>
+  </section>
+
+  <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Vinaya V Nair</title>
-  
 
+  <style>
 
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
- 
+    html {
+      scroll-behavior: smooth;
+    }
 
-</body>  
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #eef2ff;
+      color: #333333;
+      padding-top: 65px;
+    }
 
-  
+    /* ===== NAVBAR ===== */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 65px;
+      background: linear-gradient(90deg, #0f0c29, #302b63, #24243e);
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 0 20px;
+      z-index: 9999;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 40px;
+      margin-left: 0;
+      justify-content: flex-start;
+      width: 100%;
+    }
+
+    .nav-links a {
+      color: #cbd5e1;
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 500;
+      letter-spacing: 1px;
+      padding: 6px 0;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: #818cf8;
+      border-radius: 2px;
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: #ffffff;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    /* ===== SECTIONS ===== */
+    section {
+      padding: 60px 40px;
+      min-height: 100vh;
+    }
+
+    h1 {
+      color: #2c3e7a;
+    }
+
+    h2 {
+      color: #e94560;
+      margin-bottom: 20px;
+    }
+
+    p {
+      line-height: 1.7;
+    }
+
+    ul {
+      line-height: 2;
+      padding-left: 20px;
+    }
+
+    /* ===== HOME SECTION ===== */
+    #home {
+      background-color: #f0f0f0;
+    }
+
+    .container {
+      display: flex;
+      gap: 20px;
+    }
+
+    .left-box {
+      flex: 1;
+      background-color: #f0f0f0;
+      padding: 20px;
+    }
+
+    .right-box {
+      flex: 1;
+      background-color: #e0e0e0;
+      padding: 20px;
+    }
+
+    img {
+      max-width: 350px;
+      width: 100%;
+      height: auto;
+    }
+
+    /* ===== ABOUT SECTION ===== */
+    #about {
+      background-color: #eef2ff;
+    }
+
+    /* ===== INTERESTS SECTION ===== */
+    #interests {
+      background-color: #ffffff;
+    }
+
+    /* ===== CONTACT SECTION ===== */
+    #contact {
+      background-color: #f0fff4;
+    }
+
+    #contact form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      max-width: 500px;
+    }
+
+    #contact input,
+    #contact textarea {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+      width: 100%;
+    }
+
+    #contact button {
+      padding: 10px 25px;
+      background-color: #302b63;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    #contact button:hover {
+      background-color: #0f0c29;
+    }
+
+    /* ===== TABLET VIEW 768px ===== */
+    @media (max-width: 768px) {
+
+      .navbar {
+        padding: 10px 15px;
+        height: auto;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .nav-links {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 15px;
+        padding: 8px 0;
+      }
+
+      .nav-links a {
+        font-size: 0.85rem;
+      }
+
+      body {
+        padding-top: 100px;
+      }
+
+      .container {
+        flex-direction: column;
+      }
+
+      .left-box, .right-box {
+        width: 100%;
+      }
+
+      section {
+        padding: 40px 20px;
+      }
+
+    }
+
+    /* ===== MOBILE VIEW 480px ===== */
+    @media (max-width: 480px) {
+
+      .navbar {
+        padding: 10px;
+      }
+
+      .nav-links {
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+
+      .nav-links a {
+        font-size: 0.78rem;
+      }
+
+      body {
+        padding-top: 110px;
+      }
+
+      h1 {
+        font-size: 22px;
+      }
+
+      #contact input,
+      #contact textarea {
+        width: 100%;
+      }
+
+      #contact button {
+        width: 100%;
+      }
+
+    }
+
+  </style>
 </head>
-    
-    
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About Me</a></li>
+      <li><a href="#interests">My Interests</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+
+  <section id="home">
+    <div class="container">
+      <div class="left-box">
+        <h1>VINAYA V NAIR</h1>
+        <p>I'm a data science student participating in a 5-day frontend bootcamp.</p>
+      </div>
+      <div class="right-box">
+        <img src="1000137643.jpg" alt="My photo" />
+      </div>
+    </div>
+  </section>
+
+  
+  <section id="about">
+    <h2>About Me</h2>
+    <p>My name is Vinaya, data science student in Jain University, Kochi. I am passionate about how HTML can integrate with analysis.</p>
+  </section>
+
+  
+  <section id="interests">
+    <h2>My Interests</h2>
+    <ul>
+      <li>Claude AI</li>
+      <li>R Programming</li>
+      <li>Power BI</li>
+      <li>Microsoft Excel</li>
+    </ul>
+  </section>
+
+  
+  <section id="contact">
+    <h2>Contact</h2>
+    <form id="contactForm">
+      <label>Full Name</label>
+      <input type="text" id="name" placeholder="Enter your name" required />
+      <label>Email</label>
+      <input type="email" id="email" placeholder="Enter your email" required />
+      <button type="submit">Submit</button>
+    </form>
+  </section>
+
+  
 
 
   
 
-  
-
-  
-   <section class="box"><h2>My Interests</h2>
-   <ul>
-     <li>Claude AI</li>
-     
-     <li>R Programming</li>
-     <li>Power Bi</li>
-     <li>Microsoft Excel</li>
-   </ul>
-   </section>
-
-  <h2>Contact</h2>
-  <form>
-    <label>Full Name</label>
-    <input type="text" />
-    
-    <div style="margin-top: 20px;"></div> 
-    
-    <label>Email</label>
-    <input type="email" />
-    <div style="margin-top: 20px;"></div> 
-    <button type="submit">Submit</button>
-    <div style="margin-top: 20px;"></div> 
-    
-
-  </form>
-  
 </body>
 </html>
